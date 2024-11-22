@@ -1,0 +1,38 @@
+.todo{
+    margin-top: 5%;
+    margin-left: 5%;
+    background-color: aqua;
+    width: 20%;
+     padding:4%;
+     padding-left: 9px;
+     border:10px solid;
+     border-radius: 1%;
+     font-style: italic;
+ }
+ .btn{
+    margin-top: 10%;
+    font-size: 180%;
+    background-color: rgb(229, 53, 141);
+    color: aliceblue;
+    border: 3px solid;
+    border-color: black;
+    cursor:  pointer;
+    border-radius: 10%;
+ }
+ .title{
+    text-align: center;
+    font-size: 35px;
+ }
+ .listitem{
+    margin-top: -30%;
+    margin-left: 40%;
+    background-color: aqua;
+    width: 40%;
+     padding:4%;
+     padding-left: 9px;
+     border:10px solid;
+     border-radius: 1%;
+ }
+ 
+
+ 
