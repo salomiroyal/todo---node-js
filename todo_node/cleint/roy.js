@@ -2,9 +2,9 @@ async function fetchdata(){
     try{
         const response = await fetch('http://localhost:4000/todos');
 
-    if(!response.ok){
-        throw new Error('Network response was not ok');
-    }
+        if(!response.ok){
+             throw new Error('Network response was not ok');
+        }
 
     const data=await response.json();
     console.log("succes at fetching ",data);

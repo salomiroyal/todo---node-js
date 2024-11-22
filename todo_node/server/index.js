@@ -2,11 +2,20 @@ import exp from "express"
 import mon from "mongoose"
 import dot from "dotenv"
 import cors from "cors"
+<<<<<<< HEAD
 
 const app = exp();
 dot.config();
 app.use(exp.json());
 app.use(cors());
+=======
+dot.config();
+
+const app = exp();
+
+app.use(exp.json());
+app.use(cors()); 
+>>>>>>> bae25128facf1279ebad2b0b7e066d63d2938309
 
 const tschema = new mon.Schema({
  title:String,
@@ -68,7 +77,6 @@ app.post('/todos', async(req,res)=>{
         }
     
 })
-
 
 const connect = async()=>{
     try{
