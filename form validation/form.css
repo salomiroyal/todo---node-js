@@ -1,0 +1,44 @@
+body{
+    background-color:black;
+
+}
+form{
+    background-color: white;
+    padding: 40px;
+    margin: 40px;
+    border:black;
+    border-style:outset;
+    border-radius: 30px;
+    border-width: 8px;
+    margin-right: 500px;
+    
+}
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin-top: 20px;
+
+}
+
+table, th, td {
+    border: 4px solid black;
+
+}
+th, td {
+    padding: 8px;
+    text-align: center;
+    background-color: rgb(154, 219, 57) ;
+    
+
+}
+input{
+    margin-left: 15px;
+    border-radius: 3px;
+    padding: 5px;
+
+}
+
+.in{
+    margin-left:49px;
+}
+

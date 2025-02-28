@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title> 
+     <link rel="stylesheet" href="form.css"/>
+</head>
+<body>
+    <form id="userForm" >
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" ><br><br>
+    
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" class="in"><br><br>
+
+        <label for="checkbox">Checkbox:</label>
+        <input type="checkbox" id="checkbox"><br><br>
+
+        <label for="radio">Radio:</label>
+        <input type="radio" id="radio1" name="radio" value="Option 1">Option 1
+        <input type="radio" id="radio2" name="radio" value="Option 2">Option 2<br><br>
+
+        <label for="comment">Comment:</label><br>
+        <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br><br>
+
+        <label for="dropdown">Dropdown:</label>
+        <select id="dropdown" name="dropdown">
+            <option value="Option 1">Option 1</option>
+            <option value="Option 2">Option 2</option>
+            <option value="Option 3">Option 3</option>
+        </select><br><br>
+
+        <input type="submit" value="Submit">
+        <input type="button" value="Cancel" onclick="clearForm()">
+    </form>
+
+    <script>
+        const form = document.getElementById("userForm");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            clearSpans();
+
+            if (validateForm()) {
+                createTable();
+            }
+        });
+
+        function validateForm() {
+            let isValid = true;
+            const fields = ["firstname", "lastname", "email"];
+            fields.forEach(field => {
+                const input = document.getElementById(field);
+                if (!input.value) {
+                    createSpan(input, `${field} is required.`);
+                    isValid = false;
+                }
+            });
+            return isValid;
+        }
+
+        function createSpan(input, message) {
+            const span = document.createElement("span");
+            span.className = "error";
+            span.textContent = message;
+            input.parentNode.insertBefore(span, input.nextSibling);
+        }
+
+        function clearSpans() {
+            const spans = document.querySelectorAll(".error");
+            spans.forEach(span => {
+                span.remove();
+            });
+        }
+
+        function clearForm() {
+            form.reset();
+            clearSpans();
+        }
+
+        function createTable() {
+            const table = document.createElement("table");
+                const data = {
+                    "field":"value",
+    
+                "First Name": document.getElementById("firstname").value,
+                "Last Name": document.getElementById("lastname").value,
+                "Email": document.getElementById("email").value,
+                "Checkbox": document.getElementById("checkbox").checked ? "Checked" : "Unchecked",
+                "Radio": document.querySelector('input[name="radio"]:checked') ? document.querySelector('input[name="radio"]:checked').value : "Not selected",
+                "Comment": document.getElementById("comment").value,
+                "Dropdown": document.getElementById("dropdown").value
+            };
+
+            Object.entries(data).forEach(([field, value], index) => {
+                const row = table.insertRow(index);
+                const fieldCell = row.insertCell(0);
+                const valueCell = row.insertCell(1);
+                fieldCell.textContent = field;
+                valueCell.textContent = value;
+            });
+
+            document.body.appendChild(table);
+        }
+    </script>
+</body>
+</html>
